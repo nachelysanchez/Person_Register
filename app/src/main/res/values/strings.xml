@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Person Register</string>
+    <string name="hint_persona">Nombre de Persona</string>
+    <string name="hint_balance">Balance</string>
+    <string name="guardar">Guardar</string>
+    <string name="Persona_Register">Registro de Personas</string>
+    <string name="eliminar">Eliminar</string>
 </resources>
