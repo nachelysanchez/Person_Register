@@ -13,7 +13,7 @@ import com.example.personregister.model.Persona
 abstract class PersonasDb : RoomDatabase(){
     abstract  val personaDao: PersonaDao
 
-    companion object {
+    /*companion object {
         private const val DATABASE_NAME = "PersonasDb"
         @Volatile private var instance: PersonasDb? = null
 
@@ -30,6 +30,6 @@ abstract class PersonasDb : RoomDatabase(){
                 instance ?: buildDataBase(context).also { instance = it }
             }
         }
-    }
+    }*/
 
 }
