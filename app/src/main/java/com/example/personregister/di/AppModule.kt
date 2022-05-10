@@ -27,7 +27,7 @@ object AppModule {
     }
 
     @Provides
-    fun ProvideTicketDAO(personasDb: PersonasDb): PersonaDao {
+    fun ProvidePersonaDAO(personasDb: PersonasDb): PersonaDao {
         return personasDb.personaDao
     }
 }
