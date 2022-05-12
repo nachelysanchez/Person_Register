@@ -5,4 +5,6 @@
     <string name="guardar">Guardar</string>
     <string name="Persona_Register">Registro de Personas</string>
     <string name="eliminar">Eliminar</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_ocupacion">Ocupación</string>
 </resources>
