@@ -4,15 +4,16 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.example.personregister.model.Ocupacion
 import com.example.personregister.model.Persona
 
 @Database(
-    entities = [Persona::class],
-    version = 1
+    entities = [Persona::class, Ocupacion::class],
+    version = 2
 )
 abstract class PersonasDb : RoomDatabase(){
     abstract  val personaDao: PersonaDao
-
+    abstract  val ocupacionDao : OcupacionDao
     /*companion object {
         private const val DATABASE_NAME = "PersonasDb"
         @Volatile private var instance: PersonasDb? = null
