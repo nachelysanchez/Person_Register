@@ -1,6 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/nav_grap">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_grap"
+    app:startDestination="@+id/listaPersonasFragment">
+
+    <fragment
+        android:id="@+id/listaPersonasFragment"
+        android:name="com.example.personregister.view.personas.ListaPersonasFragment"
+        android:label="lista_personas_fragment"
+        tools:layout="@layout/lista_personas_fragment" >
+        <action
+            android:id="@+id/action_listaPersonasFragment_to_personasFragment"
+            app:destination="@id/personasFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/personasFragment"
+        android:name="com.example.personregister.view.personas.PersonasFragment"
+        android:label="personas_fragment"
+        tools:layout="@layout/personas_fragment" />
 
 </navigation>
