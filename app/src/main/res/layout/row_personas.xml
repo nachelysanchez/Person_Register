@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/row_persona_constraintlayout"
+    android:layout_margin="4dp">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/inicio_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.15" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/fin_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.80" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/medio_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.50" />
+
+    <TextView
+        android:id="@+id/PersonaIdTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@id/inicio_guideline"
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="@color/gray"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textColor="@color/design_default_color_on_secondary"
+        tools:text="ID" />
+
+    <TextView
+        android:id="@+id/NombreTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        tools:text="Nombres"
+        android:background="@color/gray"
+        app:layout_constraintBottom_toBottomOf="@+id/PersonaIdTextView"
+        app:layout_constraintEnd_toStartOf="@+id/medio_guideline"
+        app:layout_constraintStart_toEndOf="@+id/PersonaIdTextView"
+        android:textColor="@color/design_default_color_on_secondary"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/emailTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        tools:text="Email"
+        android:background="@color/gray"
+        app:layout_constraintStart_toStartOf="@+id/medio_guideline"
+        app:layout_constraintEnd_toStartOf="@id/fin_guideline"
+        android:textColor="@color/design_default_color_on_secondary"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/salarioTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/gray"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textColor="@color/design_default_color_on_secondary"
+        app:layout_constraintStart_toStartOf="@+id/fin_guideline"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Salario" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
