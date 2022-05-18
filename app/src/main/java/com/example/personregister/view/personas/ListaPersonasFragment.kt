@@ -13,6 +13,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.personregister.R
 import com.example.personregister.databinding.ListaPersonasFragmentBinding
+import com.example.personregister.model.Ocupacion
 import com.example.personregister.model.Persona
 import com.example.personregister.viewmodel.PersonaViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -44,11 +45,20 @@ class ListaPersonasFragment : Fragment() {
             openPersonasFragment()
         }
 
+        binding.agregarOcupacionButton.setOnClickListener{
+            openOcupacionesFragment()
+        }
+
         return binding.root
     }
 
     fun openPersonasFragment(persona: Persona?=null)  {
         val action = ListaPersonasFragmentDirections.actionListaPersonasFragmentToPersonasFragment(persona)
+        findNavController().navigate(action)
+    }
+
+    fun openOcupacionesFragment(ocupacion : Ocupacion?=null){
+        val action = ListaPersonasFragmentDirections.actionListaPersonasFragmentToOcupacionesFragment(ocupacion)
         findNavController().navigate(action)
     }
 
