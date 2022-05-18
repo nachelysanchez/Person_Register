@@ -7,4 +7,7 @@
     <string name="eliminar">Eliminar</string>
     <string name="hint_email">Email</string>
     <string name="hint_ocupacion">Ocupación</string>
+    <string name="AgregarOcupación">+ Ocupación</string>
+    <string name="ocupaciones_fragment">Ocupaciones</string>
+    <string name="Agregar">Agregar Persona</string>
 </resources>

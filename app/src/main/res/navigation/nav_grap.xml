@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_grap"
-    app:startDestination="@+id/listaPersonasFragment">
+    app:startDestination="@id/listaPersonasFragment">
 
     <fragment
         android:id="@+id/listaPersonasFragment"
@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_listaPersonasFragment_to_personasFragment"
             app:destination="@id/personasFragment" />
+        <action
+            android:id="@+id/action_listaPersonasFragment_to_ocupacionesFragment"
+            app:destination="@id/ocupacionesFragment" />
     </fragment>
     <fragment
         android:id="@+id/personasFragment"
@@ -22,6 +25,19 @@
         <argument
             android:name="persona"
             app:argType="com.example.personregister.model.Persona"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/ocupacionesFragment"
+        android:name="com.example.personregister.view.ocupaciones.OcupacionesFragment"
+        android:label="@string/ocupaciones_fragment"
+        tools:layout="@layout/ocupaciones_fragment" >
+
+        <argument
+            android:name="ocupacion"
+            app:argType="com.example.personregister.model.Ocupacion"
             app:nullable="true"
             android:defaultValue="@null" />
     </fragment>
