@@ -25,4 +25,10 @@ class PersonaViewModel @Inject constructor(val personaDao: PersonaDao): ViewMode
             _guardado.value=true
         }
     }
+
+    fun eliminar(persona : Persona){
+        viewModelScope.launch {
+            personaDao.eliminar(persona)
+        }
+    }
 }

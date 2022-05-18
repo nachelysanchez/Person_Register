@@ -45,9 +45,7 @@ class ListaPersonasFragment : Fragment() {
             openPersonasFragment()
         }
 
-        binding.agregarOcupacionButton.setOnClickListener{
-            openOcupacionesFragment()
-        }
+
 
         return binding.root
     }
@@ -57,10 +55,7 @@ class ListaPersonasFragment : Fragment() {
         findNavController().navigate(action)
     }
 
-    fun openOcupacionesFragment(ocupacion : Ocupacion?=null){
-        val action = ListaPersonasFragmentDirections.actionListaPersonasFragmentToOcupacionesFragment(ocupacion)
-        findNavController().navigate(action)
-    }
+
 
 
 }

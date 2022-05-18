@@ -37,12 +37,6 @@ class PersonasAdapter(
 
                 binding.root.findNavController().navigate(action)
             }
-
-            binding.rowPersonaConstraintlayout.setOnClickListener{
-                val action1 = ListaPersonasFragmentDirections.actionListaPersonasFragmentToOcupacionesFragment()
-
-                binding.root.findNavController().navigate(action1)
-            }
         }
     }
 }

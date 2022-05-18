@@ -34,6 +34,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/personaTextInput">
+
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/emailEditText"
             android:layout_width="match_parent"
@@ -76,6 +77,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Spinner">
+
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/balanceEditText"
             android:layout_width="match_parent"
@@ -87,19 +89,35 @@
 
     <Spinner
         android:id="@+id/Spinner"
-        android:layout_width="match_parent"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin16"
-        android:layout_marginTop="48dp"
-        android:layout_marginEnd="@dimen/margin16"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="280dp"
         android:hint="@string/hint_ocupacion"
-        app:layout_constraintEnd_toStartOf="parent"
+        android:tooltipText="@string/hint_ocupacion"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/emailTextInput"
-        tools:layout_editor_absoluteY="269dp">
+        app:layout_constraintTop_toBottomOf="@+id/emailTextInput">
 
     </Spinner>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/agregarOcupacionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="54dp"
+        android:layout_marginBottom="80dp"
+        android:clickable="true"
+        android:hint="@string/AgregarOcupación"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/balanceTextInput"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/Spinner"
+        app:layout_constraintTop_toBottomOf="@+id/emailTextInput" />
+
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/guardarButton"
@@ -112,11 +130,20 @@
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.204"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/balanceTextInput" />
 
-
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/eliminarButton"
+        android:layout_width="120dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="82dp"
+        android:text="@string/eliminar"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/guardarButton"
+        app:layout_constraintTop_toBottomOf="@+id/balanceTextInput" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

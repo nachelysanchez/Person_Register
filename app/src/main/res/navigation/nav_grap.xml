@@ -13,9 +13,6 @@
         <action
             android:id="@+id/action_listaPersonasFragment_to_personasFragment"
             app:destination="@id/personasFragment" />
-        <action
-            android:id="@+id/action_listaPersonasFragment_to_ocupacionesFragment"
-            app:destination="@id/ocupacionesFragment" />
     </fragment>
     <fragment
         android:id="@+id/personasFragment"
@@ -27,6 +24,9 @@
             app:argType="com.example.personregister.model.Persona"
             app:nullable="true"
             android:defaultValue="@null" />
+        <action
+            android:id="@+id/action_personasFragment_to_ocupacionesFragment"
+            app:destination="@id/ocupacionesFragment" />
     </fragment>
 
     <fragment

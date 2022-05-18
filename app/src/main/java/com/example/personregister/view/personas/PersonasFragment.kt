@@ -8,22 +8,29 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.flowWithLifecycle
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.personregister.R
 import com.example.personregister.databinding.PersonasFragmentBinding
 import com.example.personregister.model.Ocupacion
 import com.example.personregister.model.Persona
+import com.example.personregister.viewmodel.OcupacionViewModel
 import com.example.personregister.viewmodel.PersonaViewModel
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputEditText
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
 import java.util.*
 
 @AndroidEntryPoint
 class PersonasFragment : Fragment(), AdapterView.OnItemSelectedListener {
     private val viewModel: PersonaViewModel by viewModels()
+    private val viewModelO: OcupacionViewModel by viewModels()
     private lateinit var binding: PersonasFragmentBinding
 
     // get the arguments
@@ -46,7 +53,14 @@ class PersonasFragment : Fragment(), AdapterView.OnItemSelectedListener {
         binding.Spinner.onItemSelectedListener = this
 
         binding.Spinner.adapter = aaOcupaciones
-        aaOcupaciones.addAll(Arrays.asList("Informatico", "Maestro", "Chofer", "Quimico", "Ingeniero"))
+
+        lifecycleScope.launch{
+            viewModelO.ocupaciones.flowWithLifecycle(lifecycle, Lifecycle.State.STARTED).collect {
+                lista -> lista.forEach {
+                    aaOcupaciones.add(it.Nombres)
+                }
+            }
+        }
 
         //val aaOcupaciones = ArrayAdapter<Ocupacion>(inflater.context, )
 
@@ -67,6 +81,20 @@ class PersonasFragment : Fragment(), AdapterView.OnItemSelectedListener {
                 Snackbar.make(binding.balanceEditText, "Esta persona ha sido guardada", Snackbar.LENGTH_LONG).show()
                 findNavController().navigateUp()
             }
+        }
+
+        if (args.persona == null){
+            binding.eliminarButton.visibility = View.GONE
+        }
+
+        binding.eliminarButton.setOnClickListener {
+            args.persona?.let { it -> viewModel.eliminar(it) }
+            Snackbar.make(binding.balanceEditText, "Persona eliminada", Snackbar.LENGTH_LONG).show()
+            findNavController().navigateUp()
+        }
+
+        binding.agregarOcupacionButton.setOnClickListener{
+            openOcupacionesFragment()
         }
 
         return binding.root
@@ -90,6 +118,11 @@ class PersonasFragment : Fragment(), AdapterView.OnItemSelectedListener {
             binding.Spinner.setSelection(ocupacionId)
             binding.balanceEditText.setText(it.Salario.toString())
         }
+    }
+
+    fun openOcupacionesFragment(ocupacion : Ocupacion?=null){
+        val action = PersonasFragmentDirections.actionPersonasFragmentToOcupacionesFragment(ocupacion)
+        findNavController().navigate(action)
     }
 
     fun TextInputEditText.floatValue() = text.toString().toFloatOrNull() ?: 0.0f
